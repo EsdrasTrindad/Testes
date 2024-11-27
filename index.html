@@ -3,178 +3,152 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cachorrinho Fofo</title>
+  <title>Pinguim Fofo</title>
   <style>
     body {
+      margin: 0;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 0;
-      height: 100vh;
-      background: #b3d9ff; /* Azul claro */
+      background: #cce7ff; /* Fundo azul claro */
     }
 
-    .dog {
+    .penguin {
       position: relative;
       width: 200px;
-      height: 200px;
+      height: 300px;
     }
 
-    /* Corpo */
+    /* Corpo principal */
     .body {
       position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
       width: 140px;
-      height: 100px;
-      background: #f5cba7;
-      border-radius: 60% 60% 30% 30%;
-      z-index: 1;
-    }
-
-    /* Cabeça */
-    .head {
-      position: absolute;
-      top: -80px;
+      height: 200px;
+      background: black;
+      border-radius: 70% 70% 50% 50%;
+      top: 50px;
       left: 50%;
       transform: translateX(-50%);
-      width: 120px;
-      height: 120px;
-      background: #f5cba7;
-      border-radius: 50%;
-      z-index: 2;
     }
 
-    /* Orelhas */
-    .ear {
+    /* Barriga branca */
+    .belly {
       position: absolute;
-      width: 50px;
-      height: 70px;
-      background: #d35400;
+      width: 100px;
+      height: 150px;
+      background: white;
       border-radius: 50%;
-    }
-
-    .ear.left {
-      top: -20px;
-      left: -30px;
-    }
-
-    .ear.right {
-      top: -20px;
-      right: -30px;
+      top: 90px;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     /* Olhos */
     .eye {
       position: absolute;
-      top: 40px;
-      width: 15px;
-      height: 15px;
+      width: 25px;
+      height: 25px;
+      background: white;
+      border-radius: 50%;
+    }
+
+    .eye::after {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 10px;
       background: black;
       border-radius: 50%;
+      top: 7px;
+      left: 7px;
     }
 
     .eye.left {
-      left: 30px;
+      top: 40px;
+      left: 55px;
     }
 
     .eye.right {
-      right: 30px;
+      top: 40px;
+      right: 55px;
     }
 
-    /* Nariz */
-    .nose {
+    /* Bico */
+    .beak {
       position: absolute;
-      top: 70px;
+      width: 30px;
+      height: 20px;
+      background: orange;
+      border-radius: 50%;
+      top: 80px;
       left: 50%;
       transform: translateX(-50%);
-      width: 20px;
-      height: 15px;
+    }
+
+    /* Asas */
+    .wing {
+      position: absolute;
+      width: 50px;
+      height: 100px;
       background: black;
       border-radius: 50%;
     }
 
-    /* Língua */
-    .tongue {
-      position: absolute;
-      top: 90px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 30px;
-      height: 40px;
-      background: pink;
-      border-radius: 50% 50% 60% 60%;
-      animation: tongue-wag 1s infinite;
+    .wing.left {
+      top: 100px;
+      left: -20px;
+      transform-origin: right center;
+      animation: flap 2s infinite;
     }
 
-    /* Patas */
-    .paw {
+    .wing.right {
+      top: 100px;
+      right: -20px;
+      transform-origin: left center;
+      animation: flap 2s infinite;
+    }
+
+    /* Pés */
+    .foot {
       position: absolute;
       width: 40px;
-      height: 40px;
-      background: #f5cba7;
+      height: 20px;
+      background: orange;
       border-radius: 50%;
-      z-index: 0;
+      top: 240px;
     }
 
-    .paw.left {
-      bottom: -10px;
-      left: 20px;
+    .foot.left {
+      left: 40px;
     }
 
-    .paw.right {
-      bottom: -10px;
-      right: 20px;
-    }
-
-    /* Rabo */
-    .tail {
-      position: absolute;
-      bottom: 40px;
-      right: -20px;
-      width: 15px;
-      height: 50px;
-      background: #d35400;
-      border-radius: 50%;
-      transform-origin: top;
-      animation: tail-wag 0.5s infinite;
+    .foot.right {
+      right: 40px;
     }
 
     /* Animações */
-    @keyframes tongue-wag {
+    @keyframes flap {
       0%, 100% {
-        transform: translateX(-50%) translateY(0);
+        transform: rotate(0deg);
       }
       50% {
-        transform: translateX(-50%) translateY(5px);
-      }
-    }
-
-    @keyframes tail-wag {
-      0%, 100% {
         transform: rotate(20deg);
-      }
-      50% {
-        transform: rotate(-20deg);
       }
     }
   </style>
 </head>
 <body>
-  <div class="dog">
-    <div class="tail"></div>
+  <div class="penguin">
     <div class="body"></div>
-    <div class="head">
-      <div class="ear left"></div>
-      <div class="ear right"></div>
-      <div class="eye left"></div>
-      <div class="eye right"></div>
-      <div class="nose"></div>
-      <div class="tongue"></div>
-    </div>
-    <div class="paw left"></div>
-    <div class="paw right"></div>
+    <div class="belly"></div>
+    <div class="eye left"></div>
+    <div class="eye right"></div>
+    <div class="beak"></div>
+    <div class="wing left"></div>
+    <div class="wing right"></div>
+    <div class="foot left"></div>
+    <div class="foot right"></div>
   </div>
 </body>
 </html>
