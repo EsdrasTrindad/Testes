@@ -3,34 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cachorrinho Animado</title>
+  <title>Cachorrinho Fofo</title>
   <style>
     body {
+      margin: 0;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
       background: #cce7ff;
-      margin: 0;
-      overflow: hidden;
     }
 
     .dog {
       position: relative;
       width: 200px;
       height: 200px;
-      animation: jump 2s infinite;
     }
 
     /* Cabeça */
     .head {
       position: absolute;
-      top: 50px;
-      left: 50px;
-      width: 100px;
-      height: 100px;
+      width: 120px;
+      height: 120px;
       background: #f5cba7;
       border-radius: 50%;
+      top: 30px;
+      left: 40px;
+      z-index: 2;
     }
 
     /* Orelhas */
@@ -44,12 +43,12 @@
 
     .ear.left {
       top: 10px;
-      left: -20px;
+      left: 10px;
     }
 
     .ear.right {
       top: 10px;
-      right: -20px;
+      right: 10px;
     }
 
     /* Olhos */
@@ -62,20 +61,20 @@
     }
 
     .eye.left {
-      top: 30px;
-      left: 25px;
+      top: 40px;
+      left: 30px;
     }
 
     .eye.right {
-      top: 30px;
-      right: 25px;
+      top: 40px;
+      right: 30px;
     }
 
     /* Nariz */
     .nose {
       position: absolute;
-      top: 60px;
-      left: 40px;
+      top: 70px;
+      left: 50px;
       width: 20px;
       height: 15px;
       background: black;
@@ -85,8 +84,8 @@
     /* Língua */
     .tongue {
       position: absolute;
-      top: 80px;
-      left: 45px;
+      top: 90px;
+      left: 55px;
       width: 15px;
       height: 30px;
       background: pink;
@@ -108,8 +107,8 @@
     /* Rabo */
     .tail {
       position: absolute;
-      top: 20px;
-      left: -30px;
+      top: 150px;
+      left: -10px;
       width: 20px;
       height: 60px;
       background: #d35400;
@@ -136,29 +135,19 @@
         transform: translateY(5px);
       }
     }
-
-    @keyframes jump {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-20px);
-      }
-    }
   </style>
 </head>
 <body>
   <div class="dog">
-    <div class="ear left"></div>
-    <div class="ear right"></div>
+    <div class="tail"></div>
+    <div class="body"></div>
     <div class="head">
+      <div class="ear left"></div>
+      <div class="ear right"></div>
       <div class="eye left"></div>
       <div class="eye right"></div>
       <div class="nose"></div>
       <div class="tongue"></div>
-    </div>
-    <div class="body">
-      <div class="tail"></div>
     </div>
   </div>
 </body>
