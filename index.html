@@ -1,45 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogo de Aventura</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cachorrinho Animado</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="gameContainer">
-        <!-- Elementos do jogo -->
-        <div id="top"></div> <!-- Topo fixo -->
-        <div class="floor"></div> <!-- Chão do jogo -->
-        <div id="left-wall"></div> <!-- Parede esquerda -->
-        
-        <!-- Obstáculos -->
-        <div class="saw"></div> <!-- Serra -->
-        <div class="hammer obstacle"></div> <!-- Martelo -->
-        <div class="bird"></div> <!-- Pássaro -->
-        
-        <!-- Herói -->
-        <div id="hero" class="idle-right"></div> <!-- Personagem do jogador -->
-        
-        <!-- Elementos interativos -->
-        <div class="tree"></div> <!-- Árvore -->
-        <div class="monster"></div> <!-- Monstro -->
-        <div class="bush"></div> <!-- Arbusto -->
-        <div class="house"></div> <!-- Casa -->
-
-        <!-- UI -->
-        <div id="scores">
-            <p>Pontuação: 0</p>
-        </div>
-        
-        <!-- Tela de Game Over ou Vitoria -->
-        <div class="screen">
-            <h1>Game Over</h1>
-            <p>Você perdeu! Tente novamente.</p>
-            <button id="restartButton" class="btn">Reiniciar</button>
-        </div>
+  <div class="dog">
+    <div class="ear left"></div>
+    <div class="ear right"></div>
+    <div class="head">
+      <div class="eye left"></div>
+      <div class="eye right"></div>
+      <div class="nose"></div>
+      <div class="tongue"></div>
     </div>
-
-    <script src="script.js"></script>
+    <div class="body">
+      <div class="tail"></div>
+    </div>
+  </div>
 </body>
 </html>
