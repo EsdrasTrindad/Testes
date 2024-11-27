@@ -6,12 +6,12 @@
   <title>Cachorrinho Fofo</title>
   <style>
     body {
-      margin: 0;
-      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #cce7ff;
+      margin: 0;
+      height: 100vh;
+      background: #b3d9ff; /* Azul claro */
     }
 
     .dog {
@@ -20,40 +20,55 @@
       height: 200px;
     }
 
+    /* Corpo */
+    .body {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 140px;
+      height: 100px;
+      background: #f5cba7;
+      border-radius: 60% 60% 30% 30%;
+      z-index: 1;
+    }
+
     /* Cabeça */
     .head {
       position: absolute;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
       width: 120px;
       height: 120px;
       background: #f5cba7;
       border-radius: 50%;
-      top: 30px;
-      left: 40px;
       z-index: 2;
     }
 
     /* Orelhas */
     .ear {
       position: absolute;
-      width: 40px;
-      height: 60px;
+      width: 50px;
+      height: 70px;
       background: #d35400;
       border-radius: 50%;
     }
 
     .ear.left {
-      top: 10px;
-      left: 10px;
+      top: -20px;
+      left: -30px;
     }
 
     .ear.right {
-      top: 10px;
-      right: 10px;
+      top: -20px;
+      right: -30px;
     }
 
     /* Olhos */
     .eye {
       position: absolute;
+      top: 40px;
       width: 15px;
       height: 15px;
       background: black;
@@ -61,12 +76,10 @@
     }
 
     .eye.left {
-      top: 40px;
       left: 30px;
     }
 
     .eye.right {
-      top: 40px;
       right: 30px;
     }
 
@@ -74,7 +87,8 @@
     .nose {
       position: absolute;
       top: 70px;
-      left: 50px;
+      left: 50%;
+      transform: translateX(-50%);
       width: 20px;
       height: 15px;
       background: black;
@@ -85,54 +99,64 @@
     .tongue {
       position: absolute;
       top: 90px;
-      left: 55px;
-      width: 15px;
-      height: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 40px;
       background: pink;
-      border-radius: 15px;
-      animation: wag-tongue 1s infinite;
+      border-radius: 50% 50% 60% 60%;
+      animation: tongue-wag 1s infinite;
     }
 
-    /* Corpo */
-    .body {
+    /* Patas */
+    .paw {
       position: absolute;
-      top: 140px;
-      left: 30px;
-      width: 140px;
-      height: 100px;
+      width: 40px;
+      height: 40px;
       background: #f5cba7;
       border-radius: 50%;
+      z-index: 0;
+    }
+
+    .paw.left {
+      bottom: -10px;
+      left: 20px;
+    }
+
+    .paw.right {
+      bottom: -10px;
+      right: 20px;
     }
 
     /* Rabo */
     .tail {
       position: absolute;
-      top: 150px;
-      left: -10px;
-      width: 20px;
-      height: 60px;
+      bottom: 40px;
+      right: -20px;
+      width: 15px;
+      height: 50px;
       background: #d35400;
       border-radius: 50%;
       transform-origin: top;
-      animation: wag-tail 0.5s infinite;
+      animation: tail-wag 0.5s infinite;
     }
 
     /* Animações */
-    @keyframes wag-tail {
+    @keyframes tongue-wag {
+      0%, 100% {
+        transform: translateX(-50%) translateY(0);
+      }
+      50% {
+        transform: translateX(-50%) translateY(5px);
+      }
+    }
+
+    @keyframes tail-wag {
       0%, 100% {
         transform: rotate(20deg);
       }
       50% {
         transform: rotate(-20deg);
-      }
-    }
-
-    @keyframes wag-tongue {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(5px);
       }
     }
   </style>
@@ -149,6 +173,8 @@
       <div class="nose"></div>
       <div class="tongue"></div>
     </div>
+    <div class="paw left"></div>
+    <div class="paw right"></div>
   </div>
 </body>
 </html>
