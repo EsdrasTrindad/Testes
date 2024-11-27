@@ -1,236 +1,141 @@
-@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
-
 body {
-    margin: 0;
-    overflow: hidden;
-    font-family: "Anton", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #cce7ff;
+  margin: 0;
+  overflow: hidden;
 }
 
-#gameContainer {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    background: linear-gradient(to bottom, #87ceeb, #ffffff); /* Céu de fundo */
-    overflow: hidden;
-    background: url("https://drive.google.com/thumbnail?id=1_wfqi7bSM_iKIMx1sLNrS6aSx259sGrx&sz=w2000");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
+.dog {
+  position: relative;
+  width: 200px;
+  height: 250px;
+  animation: jump 2s infinite;
 }
 
-#top {
-    background: black;
-    position: fixed;
-    top: 0;
-    height: 50%;
-    width: 100vw;
-    z-index: 0;
+/* Cabeça */
+.head {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  width: 100px;
+  height: 100px;
+  background: #f5cba7;
+  border-radius: 50%;
+  z-index: 2;
 }
 
-#left-wall {
-    position: absolute;
-    width: 2000px;
-    height: calc(50% - 200px);
-    margin-left: -2000px;
-    background-color: black;
-    top: calc(50% + 200px);
+/* Orelhas */
+.ear {
+  position: absolute;
+  width: 40px;
+  height: 60px;
+  background: #d35400;
+  border-radius: 50%;
 }
 
-.tree {
-    position: absolute;
-    z-index: 0;
-    bottom: 0;
-    background: url("https://drive.google.com/thumbnail?id=1ECNZf1tZIfmNy_GZB0jghoDIDlTMl1Pf&sz=w1000");
-    background-size: contain;
-    background-repeat: no-repeat;
+.ear.left {
+  top: 0;
+  left: -20px;
 }
 
-.tree:nth-child(1) {
-    height: 400px;
-    top: calc(50% - 200px);
-    left: 800px;
+.ear.right {
+  top: 0;
+  right: -20px;
 }
 
-.tree:nth-child(2) {
-    height: 200px;
-    top: calc(50% - 0px);
-    left: 2000px;
+/* Olhos */
+.eye {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: black;
+  border-radius: 50%;
 }
 
-.tree:nth-child(3) {
-    height: 200px;
-    top: calc(50% - 0px);
-    left: 3000px;
+.eye.left {
+  top: 30px;
+  left: 25px;
 }
 
-.tree:nth-child(4) {
-    height: 390px;
-    top: calc(50% - 180px);
-    left: 5000px;
+.eye.right {
+  top: 30px;
+  right: 25px;
 }
 
-.tree:nth-child(5) {
-    height: 390px;
-    top: calc(50% - 180px);
-    left: 6000px;
+/* Nariz */
+.nose {
+  position: absolute;
+  top: 60px;
+  left: 40px;
+  width: 20px;
+  height: 15px;
+  background: black;
+  border-radius: 50%;
 }
 
-#hero {
-    position: fixed;
-    width: 32px;
-    height: 44px;
-    background-repeat: no-repeat;
-    top: calc(50% + 200px);
-    left: 10%;
-    transform: translate(-50%, -50%);
-    margin-top: -20px;
-    z-index: 99;
+/* Língua */
+.tongue {
+  position: absolute;
+  top: 80px;
+  left: 45px;
+  width: 15px;
+  height: 30px;
+  background: pink;
+  border-radius: 15px;
+  animation: wag-tongue 1s infinite;
 }
 
-#hero.idle-right {
-    background-image: url("https://drive.google.com/thumbnail?id=1LfRNG8pJK8F0lYtXH9tfGT70l4IW-66S&sz=w1000");
+/* Corpo */
+.body {
+  position: absolute;
+  top: 140px;
+  left: 30px;
+  width: 140px;
+  height: 100px;
+  background: #f5cba7;
+  border-radius: 50%;
 }
 
-#hero.idle-left {
-    background-image: url("https://drive.google.com/thumbnail?id=1oxPBLaiwJR1QzOrLC4Z_dt5nFl56RzoN&sz=w1000");
+/* Rabo */
+.tail {
+  position: absolute;
+  top: 20px;
+  left: -30px;
+  width: 20px;
+  height: 60px;
+  background: #d35400;
+  border-radius: 50%;
+  transform-origin: top;
+  animation: wag-tail 0.5s infinite;
 }
 
-#hero.running-right {
-    background-image: url("https://drive.google.com/thumbnail?id=1tbtI6RBfVzPV8TbA-Ww44E5Dz5_Ek3m0&sz=w1000");
-    animation: runRight 0.7s steps(6) infinite;
+/* Animações */
+@keyframes wag-tail {
+  0%, 100% {
+    transform: rotate(20deg);
+  }
+  50% {
+    transform: rotate(-20deg);
+  }
 }
 
-@keyframes runRight {
-    from {
-        background-position: 0 0;
-    }
-    to {
-        background-position: -192px 0;
-    }
-}
-
-#hero.running-left {
-    background-image: url("https://drive.google.com/thumbnail?id=1eIBkrLk1cMlnsLETX1sLeqOc0On0D2R2&sz=w1000");
-    animation: runLeft 0.7s steps(6) infinite;
-}
-
-@keyframes runLeft {
-    from {
-        background-position: 0 0;
-    }
-    to {
-        background-position: -192px 0;
-    }
-}
-
-#hero.jump {
-    animation: jump 0.5s ease-in-out;
+@keyframes wag-tongue {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
 }
 
 @keyframes jump {
-    0% {
-        top: 70%;
-    }
-    50% {
-        top: 50%;
-    }
-    100% {
-        top: 70%;
-    }
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
 }
-
-.saw {
-    height: 200px;
-    width: 200px;
-    background-color: #bbb;
-    border-radius: 50%;
-    top: calc(50% + 300px);
-    background: url("https://drive.google.com/thumbnail?id=1Ilr8beBalsgBA-QcCSeBpisfhJwj5kUi&sz=w1000");
-    background-size: cover;
-    z-index: 0;
-    animation: saw 5s ease-in-out infinite;
-}
-
-@keyframes saw {
-    0%, 100% {
-        top: calc(50% + 300px);
-        transform: rotate(0deg);
-    }
-    50% {
-        top: calc(50% + 100px);
-        transform: rotate(360deg);
-    }
-}
-
-#scores {
-    position: fixed;
-    top: 40px;
-    left: 10px;
-    font-size: 24px;
-    color: #fff;
-}
-
-#restartButton {
-    padding: 10px 20px;
-    font-size: 16px;
-}
-
-.screen {
-    position: fixed;
-    left: 0;
-    z-index: 9999;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 80px;
-    display: none;
-}
-
-.screen h1 {
-    font-size: 5rem;
-    color: #fff;
-    text-align: center;
-}
-
-.screen p {
-    color: #ccc;
-    font-size: 1rem;
-    text-align: center;
-}
-
-#top {
-    background-color: black;
-    position: fixed;
-    top: 0;
-    height: calc(50% - 200px);
-    width: 100%;
-}
-
-.bush {
-    position: absolute;
-    z-index: 0;
-    width: 200px;
-    height: 100%;
-    background-color: lightgreen;
-    top: calc(50% + 140px);
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-.monster {
-    position: absolute;
-    z-index: 0;
-    background: url("https://drive.google.com/thumbnail?id=1UO-UFCQlbSN46NPyDLS8Bf6-WMfbz8lS&sz=w1000");
-    width: 200px;
-    height: 100%;
-    top: calc(50% + 140px);
-    margin-top: -120px;
-}
-
-/* Ajuste para telas pequenas */
-@media only screen and (max-width: 600px) {
-    .screen h1 {
-        font-size: 2.2rem;
-    }
-    .screen p {
-        color
