@@ -1,154 +1,44 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pinguim Fofo</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #cce7ff; /* Fundo azul claro */
-    }
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Penguin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
 
-    .penguin {
-      position: relative;
-      width: 200px;
-      height: 300px;
-    }
+  <body>
+    <div class="left-mountain"></div>
+    <div class="back-mountain"></div>
+    <div class="sun"></div>
+    <div class="penguin">
+      <div class="penguin-head">
+        <div class="face left"></div>
+        <div class="face right"></div>
+        <div class="chin"></div>
+        <div class="eye left">
+          <div class="eye-lid"></div>
+        </div>
+        <div class="eye right">
+          <div class="eye-lid"></div>
+        </div>
+        <div class="blush left"></div>
+        <div class="blush right"></div>
+        <div class="beak top"></div>
+        <div class="beak bottom"></div>
+      </div>
+      <div class="shirt">
+        <div></div>
+        <p></p>
+      </div> 
+      <div class="penguin-body">
+        <div class="arm left"></div>
+        <div class="arm right"></div>
+        <div class="foot left"></div>
+        <div class="foot right"></div>
+      </div>
+    </div>
 
-    /* Corpo principal */
-    .body {
-      position: absolute;
-      width: 140px;
-      height: 200px;
-      background: black;
-      border-radius: 70% 70% 50% 50%;
-      top: 50px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    /* Barriga branca */
-    .belly {
-      position: absolute;
-      width: 100px;
-      height: 150px;
-      background: white;
-      border-radius: 50%;
-      top: 90px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    /* Olhos */
-    .eye {
-      position: absolute;
-      width: 25px;
-      height: 25px;
-      background: white;
-      border-radius: 50%;
-    }
-
-    .eye::after {
-      content: '';
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      background: black;
-      border-radius: 50%;
-      top: 7px;
-      left: 7px;
-    }
-
-    .eye.left {
-      top: 40px;
-      left: 55px;
-    }
-
-    .eye.right {
-      top: 40px;
-      right: 55px;
-    }
-
-    /* Bico */
-    .beak {
-      position: absolute;
-      width: 30px;
-      height: 20px;
-      background: orange;
-      border-radius: 50%;
-      top: 80px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    /* Asas */
-    .wing {
-      position: absolute;
-      width: 50px;
-      height: 100px;
-      background: black;
-      border-radius: 50%;
-    }
-
-    .wing.left {
-      top: 100px;
-      left: -20px;
-      transform-origin: right center;
-      animation: flap 2s infinite;
-    }
-
-    .wing.right {
-      top: 100px;
-      right: -20px;
-      transform-origin: left center;
-      animation: flap 2s infinite;
-    }
-
-    /* Pés */
-    .foot {
-      position: absolute;
-      width: 40px;
-      height: 20px;
-      background: orange;
-      border-radius: 50%;
-      top: 240px;
-    }
-
-    .foot.left {
-      left: 40px;
-    }
-
-    .foot.right {
-      right: 40px;
-    }
-
-    /* Animações */
-    @keyframes flap {
-      0%, 100% {
-        transform: rotate(0deg);
-      }
-      50% {
-        transform: rotate(20deg);
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="penguin">
-    <div class="body"></div>
-    <div class="belly"></div>
-    <div class="eye left"></div>
-    <div class="eye right"></div>
-    <div class="beak"></div>
-    <div class="wing left"></div>
-    <div class="wing right"></div>
-    <div class="foot left"></div>
-    <div class="foot right"></div>
-  </div>
-</body>
+    <div class="ground"></div>
+  </body>
 </html>
